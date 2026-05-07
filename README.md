@@ -1,25 +1,45 @@
-# README
+# Rails + GraphQL Fundamentals
+GraphQL + Rails is a very interesting and powerful tech stack combination to learn
+A simple but complete beginner-friendly project for learning GraphQL with Ruby on Rails using
+This project covers:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Queries
+- Mutations
+- Types
+- Resolvers
+- Dataloader / Batch Loading
+- ActiveRecord Relations
+- GraphQL Schema Structure
+- Rails + GraphQL Request Flow
 
-Things you may want to cover:
+## Tech Stack
 
-* Ruby version
+- Ruby on Rails (API)
+- PostgreSQL
+- GraphQL
 
-* System dependencies
+## Getting Started
 
-* Configuration
+```bash
+git clone <repo_url>
+cd <project_name>
 
-* Database creation
+bundle install
 
-* Database initialization
+rails db:create
+rails db:migrate
 
-* How to run the test suite
+rails server
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Open GraphiQL / Playground or any other API testing like Postman which i love it so much and start exploring queries and mutations.
 
-* Deployment instructions
+## Purpose
 
-* ...
-# Rails_with_graphql
+This repository is built for learning and experimenting with GraphQL in Rails in a clean and understandable way.
+
+Feel free to:
+- clone
+- learn
+- modify
+
