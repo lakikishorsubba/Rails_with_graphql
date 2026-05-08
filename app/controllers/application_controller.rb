@@ -5,7 +5,7 @@ class ApplicationController < ActionController::API
     token = request.headers["Authorization"]&.split(" ")&.last # concept call each function to extract the actual token
 
     if token.nil?
-      render json: {
+      return render json: {
         error: "Not Authenticated"
       },
       status: 401
