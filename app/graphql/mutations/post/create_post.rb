@@ -9,7 +9,7 @@ module Mutations
       type Types::PostType, null: false
 
       def resolve(title:, body:)
-        ::Post.create!(title: title, body: body)
+        ::Post.create!(title: title, body: body, user_id: context[:current_user].id)
       end
     end
   end

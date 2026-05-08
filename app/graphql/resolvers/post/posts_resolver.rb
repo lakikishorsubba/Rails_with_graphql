@@ -4,7 +4,7 @@ module Resolvers
       type [ Types::PostType ], null: false
 
       def resolve
-        Post.all.order(created_at: :asc)
+        ::Post.all.order(created_at: :asc)
       end
     end
   end
