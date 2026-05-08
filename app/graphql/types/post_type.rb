@@ -3,6 +3,6 @@ module Types
     field :id, ID, null: false
     field :title, String, null: false
     field :body, String, null: true
-    field :user, Types::UserType, null: true
+    field :author, Types::UserType, null: true, method: :user
   end
 end
