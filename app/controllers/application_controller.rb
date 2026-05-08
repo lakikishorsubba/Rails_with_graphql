@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+  before_action :authenticate_user!, unless: :devise_controller?
+
   def authenticate_user!
     token = request.headers["Authorization"]&.split(" ")&.last # concept call each function to extract the actual token
 
