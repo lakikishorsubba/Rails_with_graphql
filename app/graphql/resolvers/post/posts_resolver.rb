@@ -1,5 +1,5 @@
 module Resolvers
-  module Posts
+  module Post
     class PostsResolver < Resolvers::BaseResolver
       type [ Types::PostType ], null: false
 
