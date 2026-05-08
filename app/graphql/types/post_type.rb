@@ -4,6 +4,7 @@ module Types
     field :title, String, null: false
     field :body, String, null: true
     field :author, Types::UserType, null: true, method: :user
+    field :status, Types::PostStatusType, null: false
 
     def author
       dataloader.with(::Sources::RecordSource, ::User).load(object.user_id)

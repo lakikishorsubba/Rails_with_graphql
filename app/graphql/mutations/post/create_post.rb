@@ -4,12 +4,13 @@ module Mutations
       # request
       argument :title, String, required: false
       argument :body,  String, required: false
+      argument :status, Types::PostStatusType, required: true
 
       # respose type
       type Types::PostType, null: false
 
-      def resolve(title:, body:)
-        ::Post.create!(title: title, body: body, user_id: context[:current_user].id)
+      def resolve(title:, body:, status:)
+        ::Post.create!(title: title, body: body, status: status, user_id: context[:current_user].id)
       end
     end
   end
