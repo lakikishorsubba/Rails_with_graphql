@@ -13,7 +13,7 @@ class Users::SessionsController < Devise::SessionsController
     }, status: :ok
   end
 
-  # more redable now arguement is passed in class method
+  # more redable: how arguement is passed in class method
   def respond_to_on_destroy
     self.render(json: { message: "Logged out successfully" }, status: :ok)
   end
