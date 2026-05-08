@@ -4,15 +4,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def respond_with(resource, _opts = {})
-    if resource.persistend?
+    if resource.persisted?
       render json: {
         message: "User created successfully",
         user: {
           id: resource.id,
           email: resource.email
-        },
-        status: :ok
-      }
+        }
+      },
+      status: :ok
     else
       render json: {
         error: resource.errors.full_messages

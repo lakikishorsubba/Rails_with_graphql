@@ -9,7 +9,26 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  # The secret key used by Devise. Devise uses this key to generate
+  require "devise/orm/active_record"
+  config.skip_session_storage = [ :http_auth, :token_auth ]
+  config.navigational_formats = [ "*/*", :json ]
+  config.sign_out_via = :delete
+
+  config.jwt do |jwt|
+    jwt.secret = Rails.application.credentials.secret_key_base
+    jwt.dispatch_requests = [
+      [ "POST", %r{^/users/sign_in$} ]   # issue token on login
+    ]
+    jwt.revocation_requests = [
+      [ "DELETE", %r{^/users/sign_out$} ]  # blacklist token on logout
+    ]
+    jwt.expiration_time = 24.hours.to_i
+  end
+
+
+
+  # The secret key used by Devise.
+  # Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
@@ -313,19 +332,4 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-
-  config.jwt do |jwt|
-    jwt.secret = Rails.application.credentials.secret_key_base
-
-    # respond with token
-    jwt.dispatch_requests=[
-    [ "POST", %r{^/users/sign_in$} ]
-     ]
-    # revoke when deleted
-    jwt.revocation_requests = [
-      [ "DELETE", %r{^/users/sign_out$} ]
-    ]
-
-    jwt.expiration_time = 24.hours.to_i
-  end
 end

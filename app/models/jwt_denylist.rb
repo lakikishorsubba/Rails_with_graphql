@@ -1,4 +1,4 @@
 class JwtDenylist < ApplicationRecord
   include Devise::JWT::RevocationStrategies::Denylist
-  self.JwtDenylist = "jwt_denylists"
+  self.table_name = "jwt_denylists"
 end
