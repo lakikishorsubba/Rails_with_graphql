@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 
 gem "graphql"
+gem "devise"
+gem "devise-jwt"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.1.3"
 # Use postgresql as the database for Active Record
