@@ -24,8 +24,8 @@ This project covers:
 ## Getting Started
 
 ```bash
-git clone <repo_url>
-cd <directory>
+git clone https://github.com/lakikishorsubba/rails-graphql-api.git
+cd rails-graphql-api
 
 bundle install
 
