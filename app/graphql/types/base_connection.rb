@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
 module Types
-  class BaseConnection < Types::BaseObject
-    # add `nodes` and `pageInfo` fields, as well as `edge_type(...)` and `node_nullable(...)` overrides
-    include GraphQL::Types::Relay::ConnectionBehaviors
+  class BaseConnection < GraphQL::Types::Relay::BaseConnection # already has: edges, pageInfo, node, we're just ADDING totalCount on top
+    field :total_count, Integer, null: false
+
+    def total_count
+      object.items.size
+    rescue StandardError
+        0
+    end
   end
 end
