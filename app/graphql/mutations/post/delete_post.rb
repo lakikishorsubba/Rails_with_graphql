@@ -9,12 +9,16 @@ module Mutations
       def resolve(id:)
         post = ::Post.find_by(id: id)
 
-       if post # truthy value
-          post.destroy!
-          post
-       else
+        if post.nil?
           raise ::NotFoundError, "Post with id #{id} not found"
-       end
+        end
+
+        if post.user_id != context[:current_user].id
+          raise ::UnauthorizedError, "Unauthorized: you are not the author of this post with id: #{id}"
+        end
+
+        post.destroy!
+        post
       end
     end
   end

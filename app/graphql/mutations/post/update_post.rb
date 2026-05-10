@@ -8,9 +8,18 @@ module Mutations
       type Types::PostType, null: false
 
       def resolve(id:, title:, body:)
-        post = ::Post.find(id)
-        post.update!(title: title, body: body)
-        post
+        post = ::Post.find_by(id: id)
+
+        if post.nil?
+          raise ::NotFoundError, "Post with id #{id} not found "
+        end
+
+         if post.user_id != context[:current_user].id
+          raise ::UnauthorizedError, "Unauthorized: you are not the author of this post with id: #{id}"
+         end
+
+         post.update!(title: title, body: body)
+         post
       end
     end
   end
