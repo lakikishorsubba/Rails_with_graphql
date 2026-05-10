@@ -20,5 +20,6 @@ module Types
 
     # get post
     field :get_posts, resolver: Resolvers::Post::PostsResolver
+    field :get_post, resolver: Resolvers::Post::PostResolver
   end
 end
