@@ -12,7 +12,7 @@ This project covers:
 - ActiveRecord Relations
 - GraphQL Schema Structure
 - Rails + GraphQL Request Flow
-
+- Pagination using Relay-style Cursor Connection (graphql-ruby built-in)
 - Custom error handling. 
 
 ## Tech Stack
