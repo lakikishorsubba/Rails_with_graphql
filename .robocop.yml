@@ -1,0 +1,187 @@
+plugins:
+  - rubocop-rake
+  - rubocop-graphql
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-factory_bot
+
+require:
+  - rubocop-rspec
+  - rubocop-rspec_rails
+
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  TargetRubyVersion: 3.4
+  Exclude:
+    - "db/schema.rb"
+    - "db/solid_schema.rb"
+    - "scratches/**/*.rb"
+    - "spec/pdf_mappings/**/*.rb"
+
+Naming/PredicateName:
+  Exclude:
+    - "app/graphql/mutations/**/**.rb"
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/CommentAnnotation:
+  Enabled: false
+
+Capybara/RSpec/PredicateMatcher:
+  Enabled: false
+
+GraphQL/ExtractInputType:
+  Enabled: false
+
+GraphQL/FieldDescription:
+  Enabled: false
+
+GraphQL/ExtractType:
+  Enabled: false
+
+GraphQL/ObjectDescription:
+  Enabled: false
+
+GraphQL/ArgumentDescription:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 200
+
+Style/Documentation:
+  Enabled: false
+
+Layout/SpaceAroundOperators:
+  Enabled: false
+
+RSpec/IndexedLet:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/AnyInstance:
+  Enabled: false
+
+RSpec/InstanceVariable:
+  Enabled: false
+
+RSpec/NoExpectationExample:
+  Enabled: false
+
+RSpec/PendingWithoutReason:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/SpecFilePathFormat:
+  Enabled: false
+
+Rake/Desc:
+  Enabled: false
+
+RSpec/MissingExampleGroupArgument:
+  Enabled: false
+
+RSpec/VerifiedDoubles:
+  Enabled: false
+
+RSpec/RepeatedExample:
+  Enabled: false
+
+RSpec/EmptyLineAfterExampleGroup:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Naming/FileName:
+  Enabled: true
+  Exclude:
+    - "spec/**/*"
+    - "test/**/*"
+
+Layout/IndentationWidth:
+  Width: 2
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Lint/UselessAssignment:
+  Enabled: true
+
+Metrics/AbcSize:
+  Max: 100
+
+Metrics/BlockLength:
+  Max: 50
+  Exclude:
+    - "spec/**/*.rb"
+    - "app/services/**/*.rb"
+
+Metrics/MethodLength:
+  Max: 100
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+FactoryBot/AttributeDefinedStatically:
+  Enabled: false
+
+FactoryBot/ConsistentParenthesesStyle:
+  Enabled: false
+
+FactoryBot/CreateList:
+  Enabled: false
+
+FactoryBot/FactoryClassName:
+  Enabled: false
+
+FactoryBot/FactoryNameStyle:
+  Enabled: false
+
+FactoryBot/SyntaxMethods:
+  Enabled: false
+
+RSpecRails/AvoidSetupHook:
+  Enabled: false
+
+RSpecRails/HaveHttpStatus:
+  Enabled: false
+
+RSpecRails/HttpStatus:
+  Enabled: false
+
+RSpecRails/InferredSpecType:
+  Enabled: false
+
+RSpecRails/MinitestAssertions:
+  Enabled: false
+
+RSpecRails/NegationBeValid:
+  Enabled: false
+
+RSpecRails/TravelAround:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
