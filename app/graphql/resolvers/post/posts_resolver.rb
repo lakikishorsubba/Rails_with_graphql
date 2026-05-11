@@ -4,7 +4,7 @@ module Resolvers
       type Types::PostType.connection_type, null: false
       argument :status, Types::PostStatusType, required: false
       argument :author_id, ID, required: false
-      argument :post, String, required: false
+      argument :title, String, required: false
       argument :body, String, required: false
 
       def resolve(status: nil, author_id: nil, title: nil, body: nil, **args) # collect all arguement into a ruby hash
