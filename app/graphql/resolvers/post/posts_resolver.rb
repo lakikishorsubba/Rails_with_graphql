@@ -5,7 +5,7 @@ module Resolvers
       argument :status, Types::PostStatusType, required: false
       argument :author_id, ID, required: false
       argument :post, String, required: false
-      argument :body, S
+      argument :body, String, required: false
 
       def resolve(status: nil, author_id: nil, title: nil, body: nil, **args) # collect all arguement into a ruby hash
         # return  ::Post.all.order(created_at: :asc)
