@@ -36,6 +36,8 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods # include all those method like create,update etc in every test
+  config.include RequestHelper, type: :request
+  config.include JwtHelper
 
 
 

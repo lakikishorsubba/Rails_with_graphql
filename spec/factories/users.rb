@@ -5,7 +5,11 @@
 
 FactoryBot.define do # call module class
   factory :user do  # name of factory and map to User model automatically
-    email { Faker::Internet.email } # unique email is generated each time
-    password { "Password@123" } # static password
+    email do
+      Faker::Internet.email
+    end # unique email is generated each time
+    password do
+      "Password@123"
+    end # static password
   end
 end
