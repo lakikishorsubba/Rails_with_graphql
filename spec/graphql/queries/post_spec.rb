@@ -1,4 +1,6 @@
 RSpec.describe "Post Query", type: :request do
+  require JwtHelper
+  require RequestHelper
   let(:user) do # more redable, lazy: runs when only user is called
     create(:user)
   end
