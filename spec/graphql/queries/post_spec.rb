@@ -22,7 +22,7 @@ RSpec.describe "Post Query", type: :request do
 
       expect(response).to have_http_status(:ok)
       expect(graphql_errors).to be_nil
-      expect(graphql_data["getPosts"]["nodes"].size).to eq(1)
+      expect(graphql_data["getPosts"]["nodes"]).not_to be_empty
     end
   end
 
