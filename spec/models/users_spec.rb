@@ -6,7 +6,7 @@ RSpec.describe(User, type: :model) do # just for redable
   end
 
   it("is invalid without email") do
-    user = build(:user, email: nil)
+    user = build(:user, email: nil) # build because we dont need save for validation
     expect(user).not_to be_valid
   end
 
