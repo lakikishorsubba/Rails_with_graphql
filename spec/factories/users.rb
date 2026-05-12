@@ -4,8 +4,8 @@
 # Eg: faker creates user name and email atrribute, while factory bot takes this attribute and creates a user object.
 
 FactoryBot.define do
-  factory :users do
-    email { Faker::Internet.email }
-    password { "Password@123" }
+  factory :users do  # name of factory and map to User model automatically
+    email { Faker::Internet.email } # unique email is generated each time
+    password { "Password@123" } # static password
   end
 end
