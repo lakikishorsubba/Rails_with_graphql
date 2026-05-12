@@ -1,21 +1,12 @@
 RSpec.describe "Post Query", type: :request do
-  require JwtHelper
-  require RequestHelper
-  let(:user) do # more redable, lazy: runs when only user is called
-    create(:user)
-  end
-
-  # let!(:post) { create(:post, user: user) }
-  let!(:post) do # bang, executes immediately
-    create(:post, user: user)
-  end
+  let(:user) { create(:user) } # lazy execution
+  let!(:the_post) { create(:post, user: user) } # bang: executes immediately/ before
 
   let(:query) do
-    # percentile to return with multiline \n
     %(
-      query{
-        getPost{
-          nodes{
+      query {
+        getPosts {
+          nodes {
             id
             title
             body
@@ -24,12 +15,22 @@ RSpec.describe "Post Query", type: :request do
       }
     )
   end
- context("when authenticated") do # group similar test context
-  it("returns all post") do
-    request_post(:post, user: :user)
-    expect(response).to_have_http_statys(:ok)
-    data = JSON.parse(response.body)
-    expect(data["data"]["getPosts"]["nodes"].size).to eq(1)
+
+  context "when authenticated" do
+    it "returns all posts" do
+      graphql_request(query, user: user)
+
+      expect(response).to have_http_status(:ok)
+      expect(graphql_errors).to be_nil
+      expect(graphql_data["getPosts"]["nodes"].size).to eq(1)
+    end
   end
- end
+
+  context "when not authenticated" do
+    it "returns unauthorized error" do
+      graphql_request(query)
+
+      expect(response).to have_http_status(:unauthorized)
+    end
+  end
 end
