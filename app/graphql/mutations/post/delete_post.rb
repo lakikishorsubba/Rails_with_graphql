@@ -14,7 +14,7 @@ module Mutations
         end
 
         if post.user_id != context[:current_user].id
-          raise ::UnauthorizedError, "Unauthorized: you are not the author of this post with id: #{id}"
+          raise ::UnauthorizedError, "Unauthorized" # Unauthorized: you are not the author of this post with id: #{id}
         end
 
         post.destroy!

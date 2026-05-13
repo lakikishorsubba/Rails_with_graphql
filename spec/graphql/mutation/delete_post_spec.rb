@@ -1,7 +1,7 @@
 RSpec.describe "DeletePost Mutation", type: :request do
   let(:user) { create(:user) }
   let(:other_user) { create(:user) }
-  let(:the_post) { create(:post, user: user) }
+  let!(:the_post) { create(:post, user: user) }
 
   let(:mutation) do
     %(
@@ -13,16 +13,14 @@ RSpec.describe "DeletePost Mutation", type: :request do
       }
     )
   end
-
-  context "when authenticated as a different user" do
+ context "when authenticated as a different user" do
     it "returns unauthorized error" do
-      graphql_request(mutation, user: other_user)
+      graphql_request(mutation, variables: { id: the_post.id }, user: other_user)
 
       expect(graphql_errors).to be_present
       expect(graphql_errors.first["message"]).to eq("Unauthorized")
     end
   end
-
   context "when authenticated as post owner" do
     it "delete post successully" do
       graphql_request(mutation, user: user)
