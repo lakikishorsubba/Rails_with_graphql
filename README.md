@@ -3,7 +3,6 @@ GraphQL + Rails is a very interesting and powerful tech stack combination to lea
 A simple but complete beginner-friendly project for learning GraphQL with Ruby on Rails using
 This project covers:
 - Authentication with devise-jwt
-
 - Queries
 - Mutations
 - Types
@@ -21,7 +20,8 @@ This project covers:
 
 - Ruby on Rails (API)
 - PostgreSQL
-- GraphQL
+- GraphQLdefault: &default
+
 
 ## Getting Started
 
